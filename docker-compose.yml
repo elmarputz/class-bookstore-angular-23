@@ -9,4 +9,4 @@ services:
     container_name: angular
     user: "${UID}:${GID}"
     volumes:
-       - ./:/app
+       - ./bookstore:/app
