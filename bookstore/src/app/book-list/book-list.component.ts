@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Book, Image, Author } from '../shared/book';
 
 @Component({
   selector: 'bs-book-list',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class BookListComponent implements OnInit {
+
+  books: Book[] = [];
 
   ngOnInit(): void {
     
@@ -35,8 +38,10 @@ export class BookListComponent implements OnInit {
        'Dieses Buch führt Sie anhand eines zusammenhängenden Beispielprojekts...'
      )
    ];
+
+   console.log(this.books);
     
-    
+
   }
 
 }
