@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'bs-book-list',
@@ -6,6 +6,11 @@ import { Component } from '@angular/core';
   styles: [
   ]
 })
-export class BookListComponent {
+export class BookListComponent implements OnInit {
+
+  ngOnInit(): void {
+    
+    
+  }
 
 }
