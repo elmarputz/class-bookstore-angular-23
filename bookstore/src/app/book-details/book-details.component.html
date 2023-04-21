@@ -1,0 +1,15 @@
+<div class="ui grid" *ngIf="book">
+    <div class="four wide column">
+        <img class="ui large image" *ngIf="book.images && book.images[0]" 
+            [src]="book.images[0].url">
+    </div>
+    <div class="twelve wide column">
+        <h1 class="ui header">{{ book.title }}</h1>
+
+
+
+    </div>
+
+    <button (click)="showBookList()" class="ui red button">Zurück zur Liste</button>
+
+ </div>   
