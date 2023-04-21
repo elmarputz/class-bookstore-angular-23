@@ -20,7 +20,7 @@ export class BookDetailsComponent {
 
   ngOnInit () {
     const params = this.route.snapshot.params;
-    this.book = this.bs.getSingle(params['isbn']);
+    this.bs.getSingle(params['isbn']).subscribe((b:Book) => this.book = b);
 
   }
 
