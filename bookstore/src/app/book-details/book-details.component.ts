@@ -17,4 +17,8 @@ export class BookDetailsComponent {
     this.showListEvent.emit();
   }
 
+  getRating (num: number) {
+    return new Array(num);
+  }
+
 }
