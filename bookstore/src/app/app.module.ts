@@ -11,6 +11,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { BookFormComponent } from './book-form/book-form.component';
+import { ReactiveFormsModule } from "@angular/forms";
+
 
 @NgModule({
   declarations: [
@@ -18,12 +21,14 @@ import { ToastrModule } from 'ngx-toastr';
     BookListComponent,
     BookListItemComponent,
     BookDetailsComponent,
-    HomeComponent
+    HomeComponent,
+    BookFormComponent
   ],
   imports: [
     BrowserModule, AppRoutingModule, HttpClientModule, 
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    ReactiveFormsModule,
   ],
   providers: [BookStoreService],
   bootstrap: [AppComponent]

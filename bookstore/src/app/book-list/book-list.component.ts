@@ -20,7 +20,7 @@ export class BookListComponent implements OnInit {
 
   ngOnInit(): void {
     this.bs.getAll().subscribe(res => this.books = res);
-    this.toastr.success('Booklist loaded', 'Everything ok');
+    // this.toastr.success('Booklist loaded', 'Everything ok');
 
   }
 
