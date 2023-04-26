@@ -3,6 +3,7 @@ import { Book } from '../shared/book';
 import { BookStoreService } from '../shared/book-store.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BookFactory } from '../shared/book-factory';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'bs-book-details',
@@ -18,6 +19,7 @@ export class BookDetailsComponent {
     private bs: BookStoreService, 
     private route: ActivatedRoute,
     private router: Router, 
+    private toastr: ToastrService
   ) {}
 
   ngOnInit () {
@@ -34,6 +36,7 @@ export class BookDetailsComponent {
     if (confirm('Buch wirklich löschen?')) {
       this.bs.remove(this.book.isbn).subscribe((res:any) => this.router.navigate(['../'], 
        { relativeTo: this.route }));
+       this.toastr.success('Book deleted!');
     }
 
   }
