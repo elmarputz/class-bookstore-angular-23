@@ -112,6 +112,33 @@ export class BookFormComponent implements OnInit {
     
   }
 
-  submitForm() {}
+  submitForm() {
+    this.bookForm.value.images = this.bookForm.value.images.filter(
+      (thumbnail: { url: string }) => thumbnail.url
+    );
+
+    const book: Book = BookFactory.fromObject (this.bookForm.value);
+    book.authors = this.book.authors; 
+
+    if (this.isUpdatingBook) {
+      this.bs.update(book).subscribe(res => {
+        this.router.navigate(["../../books", book.isbn], {
+          relativeTo: this.route
+        });
+      });
+
+    } else {
+      book.user_id = 1; 
+      console.log (book);
+      this.bs.create(book).subscribe(res => {
+        this.book = BookFactory.empty();
+        this.bookForm.reset(BookFactory.empty());
+        this.router.navigate(["../books"], {
+          relativeTo: this.route
+        });
+      });
+    }
+
+  }
 
 }
