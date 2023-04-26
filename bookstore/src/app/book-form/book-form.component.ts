@@ -4,6 +4,7 @@ import { BookFactory } from '../shared/book-factory';
 import { Book } from '../shared/book';
 import { BookStoreService } from '../shared/book-store.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BookFormErrorMessages } from './book-form-error-messages';
 
 @Component({
   selector: 'bs-book-form',
@@ -96,7 +97,19 @@ export class BookFormComponent implements OnInit {
     console.log("Is form invalid? " + this.bookForm.invalid);
     this.errors = {};
 
-
+    for (const message of BookFormErrorMessages) {
+      const control = this.bookForm.get(message.forControl);
+      if (
+        control && 
+        control.dirty && 
+        control.invalid && control.errors && 
+        control.errors[message.forValidator] && 
+        !this.errors[message.forControl]
+      ) {
+        this.errors[message.forControl] = message.text;
+      }
+    }
+    
   }
 
   submitForm() {}
