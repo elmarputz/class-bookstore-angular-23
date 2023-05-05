@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { BookFormComponent } from './book-form/book-form.component';
 import { ReactiveFormsModule } from "@angular/forms";
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ReactiveFormsModule } from "@angular/forms";
     BookListItemComponent,
     BookDetailsComponent,
     HomeComponent,
-    BookFormComponent
+    BookFormComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule, AppRoutingModule, HttpClientModule, 
