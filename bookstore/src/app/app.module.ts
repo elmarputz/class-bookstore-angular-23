@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { LoginComponent } from './login/login.component';
 import { AuthenticationService } from './shared/authentication.service';
 import { TokenInterceptorService } from './shared/token-interceptor.service';
+import { JwtInterceptorService } from './shared/jwt-interceptor.service';
 
 
 @NgModule({
@@ -39,7 +40,13 @@ import { TokenInterceptorService } from './shared/token-interceptor.service';
       provide: HTTP_INTERCEPTORS, 
       useClass: TokenInterceptorService, 
       multi: true
-    }],
+    },
+    {
+      provide: HTTP_INTERCEPTORS, 
+      useClass: JwtInterceptorService, 
+      multi: true
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
