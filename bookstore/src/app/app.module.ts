@@ -8,12 +8,14 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 import { BookStoreService } from './shared/book-store.service';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { BookFormComponent } from './book-form/book-form.component';
 import { ReactiveFormsModule } from "@angular/forms";
 import { LoginComponent } from './login/login.component';
+import { AuthenticationService } from './shared/authentication.service';
+import { TokenInterceptorService } from './shared/token-interceptor.service';
 
 
 @NgModule({
@@ -32,7 +34,12 @@ import { LoginComponent } from './login/login.component';
     ToastrModule.forRoot(),
     ReactiveFormsModule,
   ],
-  providers: [BookStoreService],
+  providers: [BookStoreService,AuthenticationService, 
+    {
+      provide: HTTP_INTERCEPTORS, 
+      useClass: TokenInterceptorService, 
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
