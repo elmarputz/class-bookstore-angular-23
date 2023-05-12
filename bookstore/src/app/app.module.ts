@@ -17,6 +17,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthenticationService } from './shared/authentication.service';
 import { TokenInterceptorService } from './shared/token-interceptor.service';
 import { JwtInterceptorService } from './shared/jwt-interceptor.service';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { JwtInterceptorService } from './shared/jwt-interceptor.service';
     BookDetailsComponent,
     HomeComponent,
     BookFormComponent,
-    LoginComponent
+    LoginComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule, AppRoutingModule, HttpClientModule, 
